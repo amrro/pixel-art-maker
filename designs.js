@@ -1,8 +1,3 @@
-// Select color input
-// Select size input
-
-// When size is submitted by the user, call makeGrid()
-
 
 // variable to store the width and height.
 let numOfCols = 1;
@@ -19,6 +14,13 @@ submit.addEventListener("click", (event) => {
     makeGrid()
 })
 
+/* 
+ * When size is submitted by the user, call makeGrid()
+ * this method uses the width and heigt from user inputs, 
+ * then draw all of these cells, attaching click event lisetner to them, 
+ * so that when user click one them the color changes based
+ * on the color selected by the user. 
+ */
 function makeGrid() {
 
     const table = document.getElementById("pixelCanvas")
@@ -31,6 +33,8 @@ function makeGrid() {
         // create the <tr>
         const tr = document.createElement("tr")
         
+        // adding td to each table row based on the widht or the number of 
+        // columns provided by the user.
         for (let col = 0; col < numOfCols; col++) {
             const td = document.createElement("td")
             td.className = "pixel"
@@ -44,7 +48,8 @@ function makeGrid() {
 
     // getting all cells from the table.
     const tableCells = document.getElementsByClassName("pixel")
-    // add click event listener to each table data.
+    // Adding click event listeners to each table data/cell.
+    // so that it changes the background of it to the color selected by the user.
     for (let index = 0; index < tableCells.length; index++) {        
         tableCells[index].addEventListener("click", (event) => { 
             event.preventDefault();
